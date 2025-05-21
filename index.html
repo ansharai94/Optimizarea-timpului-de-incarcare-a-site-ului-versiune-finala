@@ -9,6 +9,8 @@
     />
     <title>Epic Media - Cel mai mare startup</title>
 
+    <!-- PWA: Add manifest -->
+    <link rel="manifest" href="manifest.json" />
     <!-- Preconnect to external domains -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -35,9 +37,13 @@
       imagesizes="100vw"
     />
 
-    <!-- Preload critical CSS -->
-    <link rel="preload" href="styles.css" as="style" />
-    <link rel="stylesheet" href="styles.css" />
+    <!-- Defer non-critical CSS -->
+    <link
+      rel="stylesheet"
+      href="styles.css"
+      media="print"
+      onload="this.media='all'"
+    />
 
     <!-- Critical CSS inlined for faster rendering -->
     <style>
@@ -141,6 +147,46 @@
         font-size: 20px;
         margin-bottom: 30px;
       }
+      /* Offline notification */
+      .offline-notification {
+        display: none;
+        position: fixed;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: #333;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 5px;
+        z-index: 2000;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+      }
+
+      /* Install prompt */
+      .install-prompt {
+        display: none;
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background-color: #4285f4;
+        color: white;
+        padding: 15px 20px;
+        border-radius: 5px;
+        z-index: 2000;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        align-items: center;
+      }
+
+      .install-prompt button {
+        background-color: white;
+        color: #4285f4;
+        border: none;
+        padding: 8px 15px;
+        border-radius: 3px;
+        margin-left: 10px;
+        cursor: pointer;
+        font-weight: 600;
+      }
 
       .cta-button {
         display: inline-block;
@@ -171,6 +217,9 @@
         }
       }
     </style>
+
+    <!-- Preload critical JavaScript -->
+    <link rel="preload" href="critical.js" as="script" />
   </head>
   <body>
     <header class="header">
@@ -199,13 +248,13 @@
           <picture>
             <source
               srcset="
-              ./assets/img/landscape-360.webp 360w,
-                ./assets/img/landscape-720.webp 720w,
+                ./assets/img/landscape-360.webp   360w,
+                ./assets/img/landscape-720.webp   720w,
                 ./assets/img/landscape-1024.webp 1024w,
                 ./assets/img/landscape-1400.webp 1400w,
                 ./assets/img/landscape-2800.webp 2800w
               "
-              sizes="100vw" 
+              sizes="100vw"
               type="image/jpeg"
             />
             <img
@@ -231,13 +280,13 @@
           <picture>
             <source
               srcset="
-              ./assets/img/landscape2-360.webp 360w,
-                ./assets/img/landscape2-720.webp 720w,
+                ./assets/img/landscape2-360.webp   360w,
+                ./assets/img/landscape2-720.webp   720w,
                 ./assets/img/landscape2-1024.webp 1024w,
                 ./assets/img/landscape2-1400.webp 1400w,
                 ./assets/img/landscape2-2800.webp 2800w
               "
-                  sizes="100vw" 
+              sizes="100vw"
               type="image/jpeg"
             />
             <img
@@ -262,13 +311,13 @@
           <picture>
             <source
               srcset="
-              ./assets/img/landscape3-360.webp 360w,
-                ./assets/img/landscape3-720.webp 720w,
+                ./assets/img/landscape3-360.webp   360w,
+                ./assets/img/landscape3-720.webp   720w,
                 ./assets/img/landscape3-1024.webp 1024w,
                 ./assets/img/landscape3-1400.webp 1400w,
                 ./assets/img/landscape3-2800.webp 2800w
               "
-                 sizes="100vw" 
+              sizes="100vw"
               type="image/jpeg"
             />
             <img
@@ -293,13 +342,13 @@
           <picture>
             <source
               srcset="
-              ./assets/img/landscape4-360.webp 360w,
-                ./assets/img/landscape4-720.webp 720w,
+                ./assets/img/landscape4-360.webp   360w,
+                ./assets/img/landscape4-720.webp   720w,
                 ./assets/img/landscape4-1024.webp 1024w,
                 ./assets/img/landscape4-1400.webp 1400w,
                 ./assets/img/landscape4-2800.webp 2800w
               "
-                 sizes="100vw" 
+              sizes="100vw"
               type="image/jpeg"
             />
             <img
@@ -324,17 +373,17 @@
           <picture>
             <source
               srcset="
-                ./assets/img/landscape5-360.webp 360w,
-                ./assets/img/landscape5-720.webp 720w,
+                ./assets/img/landscape5-360.webp   360w,
+                ./assets/img/landscape5-720.webp   720w,
                 ./assets/img/landscape5-1024.webp 1024w,
                 ./assets/img/landscape5-1400.webp 1400w,
                 ./assets/img/landscape5-2800.webp 2800w
               "
-                   sizes="100vw" 
+              sizes="100vw"
               type="image/jpeg"
             />
             <img
-              src="./assets//img/landscape5-1024.webp"
+              src="./assets/img/landscape5-1024.webp"
               alt="Epic Media Slide 5"
               width="1920"
               height="1080"
@@ -402,9 +451,10 @@
           <picture>
             <source
               srcset="
-               ./assets/img/innovation-80.webp,
+                ./assets/img/innovation-80.webp,
                 ./assets/img/innovation-360.webp,
-                ./assets/img/innovation-720.webp"
+                ./assets/img/innovation-720.webp
+              "
               type="image/jpeg"
             />
             <img
@@ -720,18 +770,24 @@
       </div>
     </footer>
 
+    <!-- PWA: Offline notification -->
+    <div class="offline-notification" id="offlineNotification">
+      Sunteți offline. Unele funcții pot fi limitate.
+    </div>
+
+    <!-- PWA: Install prompt -->
+    <div class="install-prompt" id="installPrompt">
+      <span>Instalați aplicația Epic Media</span>
+      <button id="installButton">Instalează</button>
+    </div>
+
     <!-- Load Font Awesome with defer -->
     <script src="https://kit.fontawesome.com/a076d05399.js" defer></script>
 
-    <!-- External CSS file -->
-    <link
-      rel="stylesheet"
-      href="styles.css"
-      media="print"
-      onload="this.media='all'"
-    />
-
     <!-- Main JavaScript file with defer -->
     <script src="main.js" defer></script>
+
+    <!-- PWA: App functionality -->
+    <script src="app.js" defer></script>
   </body>
 </html>

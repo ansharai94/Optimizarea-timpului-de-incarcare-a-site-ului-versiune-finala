@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#4285f4">
+    <title>Offline - Epic Media</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto', sans-serif;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background-color: #f5f7fa;
+            color: #333;
+        }
+        
+        .offline-container {
+            max-width: 90%;
+            padding: 2rem;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        h1 {
+            color: #4285f4;
+            margin-bottom: 1rem;
+        }
+        
+        p {
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+        
+        .logo {
+            width: 150px;
+            height: auto;
+            margin-bottom: 2rem;
+        }
+        
+        .retry-button {
+            background-color: #4285f4;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 4px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .retry-button:hover {
+            background-color: #3367d6;
+        }
+        
+        .cached-content {
+            margin-top: 2rem;
+            border-top: 1px solid #eee;
+            padding-top: 1rem;
+        }
+        
+        .cached-links {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .cached-links li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .cached-links a {
+            color: #4285f4;
+            text-decoration: none;
+        }
+        
+        .cached-links a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="offline-container">
+        <img src="/logo.png" alt="Epic Media Logo" class="logo">
+        <h1>Sunteți offline</h1>
+        <p>Se pare că nu aveți conexiune la internet. Unele funcții pot fi limitate până când vă reconectați.</p>
+        <button class="retry-button" onclick="window.location.reload()">Reîncercați</button>
+        
+        <div class="cached-content">
+            <h2>Conținut disponibil offline</h2>
+            <ul class="cached-links">
+                <li><a href="/">Pagina principală</a></li>
+                <li><a href="/#features">Caracteristici</a></li>
+                <li><a href="/#testimonials">Testimoniale</a></li>
+            </ul>
+        </div>
+    </div>
+    
+    <script>
+        // Check if we're back online
+        window.addEventListener('online', () => {
+            window.location.reload();
+        });
+    </script>
+</body>
+</html>
