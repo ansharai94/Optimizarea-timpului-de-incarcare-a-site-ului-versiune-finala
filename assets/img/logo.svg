@@ -1,0 +1,17 @@
+<svg width="300" height="300" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+  <!-- Outer circle -->
+  <circle cx="150" cy="100" r="60" fill="#002B5C"/>
+  
+  <!-- Play icon (triangle) -->
+  <polygon points="140,75 140,125 180,100" fill="#C8102E"/>
+  
+  <!-- Text: EPIC MEDIA -->
+  <text x="150" y="190" text-anchor="middle" font-size="24" font-family="Arial, sans-serif" fill="#002B5C" font-weight="bold">
+    EPIC MEDIA
+  </text>
+  
+  <!-- Text: CAMPAIGN -->
+  <text x="150" y="220" text-anchor="middle" font-size="16" font-family="Arial, sans-serif" fill="#002B5C" letter-spacing="3">
+    CAMPAIGN
+  </text>
+</svg>
