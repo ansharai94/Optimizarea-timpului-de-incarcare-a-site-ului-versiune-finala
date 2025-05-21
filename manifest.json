@@ -51,12 +51,12 @@
   ],
   "screenshots": [
     {
-      "src": "assets/img/screenshot1.png",
+      "src": "assets/img/screenshot1-1280.png",
       "sizes": "1280x720",
       "type": "image/jpeg"
     },
     {
-      "src": "assets/img/screenshot2.png",
+      "src": "assets/img/screenshot2-1280.png",
       "sizes": "1280x720",
       "type": "image/jpeg"
     }
@@ -69,14 +69,14 @@
       "short_name": "Contact",
       "description": "Contactați-ne direct",
       "url": "/#contact",
-      "icons": [{ "src": "icons/contact-icon.png", "sizes": "192x192" }]
+      "icons": [{ "src": "assets/img/contact.png", "sizes": "192x192" }]
     },
     {
       "name": "Caracteristici",
       "short_name": "Caracteristici",
       "description": "Vedeți caracteristicile noastre",
       "url": "/#features",
-      "icons": [{ "src": "icons/features-icon.png", "sizes": "192x192" }]
+      "icons": [{ "src": "assets/img/features.png", "sizes": "192x192" }]
     }
   ]
 }
