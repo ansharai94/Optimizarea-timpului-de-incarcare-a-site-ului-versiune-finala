@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="ro">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Epic Media - Cel mai mare startup din România, oferind soluții digitale inovatoare pentru afacerea dvs."
+    />
+    <title>Epic Media - Cel mai mare startup</title>
+
+    <!-- Preconnect to external domains -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Preload critical fonts -->
+    <link
+      rel="preload"
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      as="style"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
+    />
+
+    <!-- Preload critical images -->
+    <link
+      rel="preload"
+      as="image"
+      href="https://picsum.photos/seed/epicmedia1/1920/1080"
+      imagesrcset="https://picsum.photos/seed/epicmedia1/640/360 640w, https://picsum.photos/seed/epicmedia1/1280/720 1280w, https://picsum.photos/seed/epicmedia1/1920/1080 1920w"
+      imagesizes="100vw"
+    />
+
+    <!-- Preload critical CSS -->
+    <link rel="preload" href="styles.css" as="style" />
+    <link rel="stylesheet" href="styles.css" />
+
+    <!-- Critical CSS inlined for faster rendering -->
+    <style>
+      /* Critical CSS only */
+      body,
+      html {
+        margin: 0;
+        padding: 0;
+        font-family: "Roboto", sans-serif;
+        overflow-x: hidden;
+      }
+
+      .header {
+        background-color: #fff;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        position: fixed;
+        width: 100%;
+        z-index: 1000;
+        top: 0;
+        left: 0;
+      }
+
+      .header-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 50px;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .logo img {
+        height: 50px;
+        width: auto;
+      }
+
+      .nav-links {
+        display: flex;
+        list-style: none;
+      }
+
+      .nav-links li {
+        margin-left: 30px;
+      }
+
+      .nav-links a {
+        text-decoration: none;
+        color: #333;
+        font-weight: 600;
+        transition: color 0.3s ease;
+      }
+
+      .hero {
+        padding: 0;
+        position: relative;
+        height: 100vh;
+        overflow: hidden;
+      }
+
+      .hero-slider {
+        width: 100%;
+        height: 100%;
+        position: relative;
+      }
+
+      .slide {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        transition: opacity 0.5s ease;
+        z-index: 1;
+      }
+
+      .slide.active {
+        opacity: 1;
+        z-index: 2;
+      }
+
+      .slide-content {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        color: white;
+        z-index: 3;
+        width: 80%;
+        max-width: 800px;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+      }
+
+      .slide-content h1 {
+        font-size: 48px;
+        margin-bottom: 20px;
+      }
+
+      .slide-content p {
+        font-size: 20px;
+        margin-bottom: 30px;
+      }
+
+      .cta-button {
+        display: inline-block;
+        background-color: #4285f4;
+        color: white;
+        padding: 15px 30px;
+        border-radius: 5px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: background-color 0.3s ease;
+      }
+
+      @media (max-width: 768px) {
+        .header-container {
+          padding: 15px 20px;
+        }
+
+        .nav-links {
+          display: none;
+        }
+
+        .hero h1 {
+          font-size: 36px;
+        }
+
+        .hero p {
+          font-size: 18px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="header">
+      <div class="header-container">
+        <div class="logo">
+          <img
+            src="./assets/img/logo-360.webp"
+            alt="Epic Media Logo"
+            width="150"
+            height="50"
+          />
+        </div>
+        <ul class="nav-links">
+          <li><a href="#home">Acasă</a></li>
+          <li><a href="#features">Caracteristici</a></li>
+          <li><a href="#testimonials">Testimoniale</a></li>
+          <li><a href="#pricing">Prețuri</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </header>
+
+    <section id="home" class="hero">
+      <div class="hero-slider">
+        <div class="slide active">
+          <picture>
+            <source
+              srcset="
+                ./assets/img/landscape-360.webp,
+                ./assets/img/landscape-720.webp,
+                ./assets/img/landscape-1080.webp
+              "
+              sizes="100vw"
+              type="image/jpeg"
+            />
+            <img
+              src="./assets/img/landscape-1024.webp"
+              alt="Epic Media Slide 1"
+              width="1920"
+              height="1080"
+              loading="eager"
+              fetchpriority="high"
+              style="width: 100%; height: 100%; object-fit: cover"
+            />
+          </picture>
+          <div class="slide-content">
+            <h1>Bine ați venit la Epic Media</h1>
+            <p>
+              Cel mai mare startup creat vreodată. Revoluționăm modul în care
+              faceți afaceri cu soluțiile noastre inovatoare.
+            </p>
+            <a href="#contact" class="cta-button">Începeți</a>
+          </div>
+        </div>
+        <div class="slide">
+          <picture>
+            <source
+              srcset="
+                ./assets/img/landscape2-360.webp,
+                ./assets/img/landscape2-720.webp,
+                ./assets/img/landscape2-1080.webp
+              "
+              sizes="100vw"
+              type="image/jpeg"
+            />
+            <img
+              src="./assets//img/landscape2-1024.webp"
+              alt="Epic Media Slide 2"
+              width="1920"
+              height="1080"
+              loading="lazy"
+              style="width: 100%; height: 100%; object-fit: cover"
+            />
+          </picture>
+          <div class="slide-content">
+            <h1>Soluții Digitale Inovatoare</h1>
+            <p>
+              Transformăm ideile în realitate cu tehnologia noastră de ultimă
+              generație.
+            </p>
+            <a href="#features" class="cta-button">Aflați mai multe</a>
+          </div>
+        </div>
+        <div class="slide">
+          <picture>
+            <source
+              srcset="
+                ./assets/img/landscape3-360.webp,
+                ./assets/img/landscape3-720.webp,
+                ./assets/img/landscape3-1080.webp
+              "
+              sizes="100vw"
+              type="image/jpeg"
+            />
+            <img
+              src="./assets//img/landscape3-1024.webp"
+              alt="Epic Media Slide 3"
+              width="1920"
+              height="1080"
+              loading="lazy"
+              style="width: 100%; height: 100%; object-fit: cover"
+            />
+          </picture>
+          <div class="slide-content">
+            <h1>Expertiză de Neegalat</h1>
+            <p>
+              Echipa noastră de experți este dedicată succesului afacerii
+              dumneavoastră.
+            </p>
+            <a href="#testimonials" class="cta-button">Vezi testimoniale</a>
+          </div>
+        </div>
+        <div class="slide">
+          <picture>
+            <source
+              srcset="
+                ./assets/img/landscape4-360.webp,
+                ./assets/img/landscape4-720.webp,
+                ./assets/img/landscape4-1080.webp
+              "
+              sizes="100vw"
+              type="image/jpeg"
+            />
+            <img
+              src="./assets//img/landscape4-1024.webp"
+              alt="Epic Media Slide 4"
+              width="1920"
+              height="1080"
+              loading="lazy"
+              style="width: 100%; height: 100%; object-fit: cover"
+            />
+          </picture>
+          <div class="slide-content">
+            <h1>Suport 24/7</h1>
+            <p>
+              Suntem alături de dumneavoastră la fiecare pas al călătoriei
+              digitale.
+            </p>
+            <a href="#pricing" class="cta-button">Vezi planurile</a>
+          </div>
+        </div>
+        <div class="slide">
+          <picture>
+            <source
+              srcset="
+                ./assets/img/landscape5-360.webp,
+                ./assets/img/landscape5-720.webp,
+                ./assets/img/landscape5-1080.webp
+              "
+              sizes="100vw"
+              type="image/jpeg"
+            />
+            <img
+              src="./assets//img/landscape5-1024.webp"
+              alt="Epic Media Slide 5"
+              width="1920"
+              height="1080"
+              loading="lazy"
+              style="width: 100%; height: 100%; object-fit: cover"
+            />
+          </picture>
+          <div class="slide-content">
+            <h1>Începeți Astăzi</h1>
+            <p>
+              Transformați-vă afacerea cu soluțiile noastre digitale de top.
+            </p>
+            <a href="#contact" class="cta-button">Contactați-ne</a>
+          </div>
+        </div>
+
+        <div class="slide-arrows">
+          <div class="arrow prev" aria-label="Slide anterioară">&#10094;</div>
+          <div class="arrow next" aria-label="Slide următoare">&#10095;</div>
+        </div>
+
+        <div class="slide-dots" aria-label="Navigare slide-uri">
+          <span
+            class="dot active"
+            data-slide="0"
+            aria-label="Slide 1"
+            role="button"
+            tabindex="0"
+          ></span>
+          <span
+            class="dot"
+            data-slide="1"
+            aria-label="Slide 2"
+            role="button"
+            tabindex="0"
+          ></span>
+          <span
+            class="dot"
+            data-slide="2"
+            aria-label="Slide 3"
+            role="button"
+            tabindex="0"
+          ></span>
+          <span
+            class="dot"
+            data-slide="3"
+            aria-label="Slide 4"
+            role="button"
+            tabindex="0"
+          ></span>
+          <span
+            class="dot"
+            data-slide="4"
+            aria-label="Slide 5"
+            role="button"
+            tabindex="0"
+          ></span>
+        </div>
+      </div>
+    </section>
+
+    <section id="features" class="features">
+      <div class="features-container">
+        <div class="feature-box">
+          <picture>
+            <source
+              srcset="https://picsum.photos/seed/feature1/200/200"
+              type="image/jpeg"
+            />
+            <img
+              src="https://picsum.photos/seed/feature1/200/200"
+              alt="Caracteristică 1"
+              width="80"
+              height="80"
+              loading="lazy"
+            />
+          </picture>
+          <h3>Soluții Inovatoare</h3>
+          <p>
+            Tehnologia noastră de ultimă generație oferă soluții inovatoare
+            pentru probleme complexe, ajutând afacerea dvs. să prospere în era
+            digitală.
+          </p>
+        </div>
+        <div class="feature-box">
+          <picture>
+            <source
+              srcset="
+                ./assets/img/innovation-360.webp,
+                ./assets/img/innovation-720.webp,
+                ./assets/img/innovation-1080.webp
+              "
+              type="image/jpeg"
+            />
+            <img
+              src="./assets/img/innovation-360.webp"
+              alt="Caracteristică 2"
+              width="80"
+              height="80"
+              loading="lazy"
+            />
+          </picture>
+          <h3>Integrare Perfectă</h3>
+          <p>
+            Integrați cu ușurință platforma noastră cu sistemele dvs. existente
+            pentru o tranziție lină și o productivitate sporită.
+          </p>
+        </div>
+        <div class="feature-box">
+          <picture>
+            <source
+              srcset="
+                ./assets/img/integration-360.webp,
+                ./assets/img/integration-720.webp,
+                ./assets/img/integration-1080.webp
+              "
+              type="image/jpeg"
+            />
+            <img
+              src="./assets/img/integration-360.webp"
+              alt="Caracteristică 3"
+              width="80"
+              height="80"
+              loading="lazy"
+            />
+          </picture>
+          <h3>Suport 24/7</h3>
+          <p>
+            Echipa noastră dedicată de asistență este disponibilă non-stop
+            pentru a vă ajuta cu orice probleme sau întrebări pe care le aveți.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="testimonials" class="testimonials">
+      <div class="testimonials-container">
+        <h2>Ce Spun Clienții Noștri</h2>
+        <div class="testimonial-grid">
+          <div class="testimonial-box">
+            <div class="testimonial-content">
+              "Epic Media ne-a transformat operațiunile de afaceri. Soluțiile
+              lor inovatoare ne-au ajutat să eficientizăm procesele și să
+              creștem eficiența."
+            </div>
+            <div class="testimonial-author">
+              <picture>
+                <source
+                  srcset="
+                    ./assets/img/support-360.webp,
+                    ./assets/img/support-720.webp,
+                    ./assets/img/support-1080.webp
+                  "
+                  type="image/jpeg"
+                />
+                <img
+                  src="./assets/img/support-360.webp"
+                  alt="Ion Popescu"
+                  width="60"
+                  height="60"
+                  loading="lazy"
+                />
+              </picture>
+              <div class="author-info">
+                <h4>Ion Popescu</h4>
+                <p>CEO, Inovații Tech</p>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-box">
+            <div class="testimonial-content">
+              "Colaborarea cu Epic Media a fost o schimbare de joc pentru
+              compania noastră. Platforma lor este intuitivă, puternică și
+              susținută de un suport excepțional pentru clienți."
+            </div>
+            <div class="testimonial-author">
+              <picture>
+                <source
+                  srcset="
+                    ./assets/img/people1-360.webp,
+                    ./assets/img/people1-720.webp,
+                    ./assets/img/people1-1080.webp
+                  "
+                  type="image/jpeg"
+                />
+                <img
+                  src="./assets/img/people1-360.webp,"
+                  alt="Maria Ionescu"
+                  width="60"
+                  height="60"
+                  loading="lazy"
+                />
+              </picture>
+              <div class="author-info">
+                <h4>Maria Ionescu</h4>
+                <p>CTO, Soluții Digitale</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="pricing" class="pricing">
+      <div class="pricing-container">
+        <h2>Alegeți Planul Dvs.</h2>
+        <div class="pricing-grid">
+          <div class="pricing-box">
+            <h3>Basic</h3>
+            <div class="price">129 Lei<span>/lună</span></div>
+            <ul class="pricing-features">
+              <li>5 Proiecte</li>
+              <li>10GB Stocare</li>
+              <li>Suport de Bază</li>
+              <li>Funcții Limitate</li>
+            </ul>
+            <a href="#contact" class="pricing-button">Începeți</a>
+          </div>
+          <div class="pricing-box featured">
+            <h3>Pro</h3>
+            <div class="price">349 Lei<span>/lună</span></div>
+            <ul class="pricing-features">
+              <li>15 Proiecte</li>
+              <li>50GB Stocare</li>
+              <li>Suport Prioritar</li>
+              <li>Funcții Avansate</li>
+            </ul>
+            <a href="#contact" class="pricing-button">Începeți</a>
+          </div>
+          <div class="pricing-box">
+            <h3>Enterprise</h3>
+            <div class="price">899 Lei<span>/lună</span></div>
+            <ul class="pricing-features">
+              <li>Proiecte Nelimitate</li>
+              <li>500GB Stocare</li>
+              <li>Suport 24/7</li>
+              <li>Toate Funcțiile</li>
+            </ul>
+            <a href="#contact" class="pricing-button">Începeți</a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div class="d-flex justify-content-center">
+      <!-- Lazy load iframe -->
+      <iframe
+        width="560"
+        height="315"
+        src="about:blank"
+        data-src="https://www.youtube.com/embed/NRT1g99jBR4?si=2qQkcPD6jq7zmYQg"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+        loading="lazy"
+        title="YouTube Video"
+      ></iframe>
+    </div>
+
+    <section id="contact" class="contact">
+      <div class="contact-container">
+        <div class="contact-info">
+          <h2>Contactați-ne</h2>
+          <p>
+            Aveți întrebări sau sunteți gata să începeți? Contactați-ne astăzi
+            și echipa noastră vă va ajuta cu plăcere.
+          </p>
+          <ul class="contact-details">
+            <li>
+              <i class="fas fa-map-marker-alt" aria-hidden="true"></i> Strada
+              Tehnologiei 123, București
+            </li>
+            <li>
+              <i class="fas fa-phone" aria-hidden="true"></i> (021) 456-7890
+            </li>
+            <li>
+              <i class="fas fa-envelope" aria-hidden="true"></i>
+              info@epicmedia.ro
+            </li>
+          </ul>
+        </div>
+        <div class="contact-form">
+          <form id="contactForm">
+            <div class="form-group">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Numele Dvs."
+                required
+                aria-label="Numele Dvs."
+              />
+            </div>
+            <div class="form-group">
+              <input
+                type="email"
+                class="form-control"
+                placeholder="Email-ul Dvs."
+                required
+                aria-label="Email-ul Dvs."
+              />
+            </div>
+            <div class="form-group">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Subiect"
+                aria-label="Subiect"
+              />
+            </div>
+            <div class="form-group">
+              <textarea
+                class="form-control"
+                placeholder="Mesajul Dvs."
+                required
+                aria-label="Mesajul Dvs."
+              ></textarea>
+            </div>
+            <button type="submit" class="submit-button">Trimite Mesaj</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-col">
+          <h3>Epic Media</h3>
+          <p>
+            Cel mai mare startup creat vreodată. Revoluționăm modul în care
+            faceți afaceri cu soluțiile noastre inovatoare.
+          </p>
+        </div>
+        <div class="footer-col">
+          <h3>Link-uri Rapide</h3>
+          <ul class="footer-links">
+            <li><a href="#home">Acasă</a></li>
+            <li><a href="#features">Caracteristici</a></li>
+            <li><a href="#testimonials">Testimoniale</a></li>
+            <li><a href="#pricing">Prețuri</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>Resurse</h3>
+          <ul class="footer-links">
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Documentație</a></li>
+            <li><a href="#">Suport</a></li>
+            <li><a href="#">Politica de Confidențialitate</a></li>
+            <li><a href="#">Termeni și Condiții</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>Conectați-vă Cu Noi</h3>
+          <ul class="social-links">
+            <li>
+              <a href="#" aria-label="Facebook"
+                ><i class="fab fa-facebook-f" aria-hidden="true"></i
+              ></a>
+            </li>
+            <li>
+              <a href="#" aria-label="Twitter"
+                ><i class="fab fa-twitter" aria-hidden="true"></i
+              ></a>
+            </li>
+            <li>
+              <a href="#" aria-label="Instagram"
+                ><i class="fab fa-instagram" aria-hidden="true"></i
+              ></a>
+            </li>
+            <li>
+              <a href="#" aria-label="LinkedIn"
+                ><i class="fab fa-linkedin-in" aria-hidden="true"></i
+              ></a>
+            </li>
+          </ul>
+        </div>
+        <div class="copyright">
+          &copy; 2025 Epic Media. Toate drepturile rezervate.
+        </div>
+      </div>
+    </footer>
+
+    <!-- Load Font Awesome with defer -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" defer></script>
+
+    <!-- External CSS file -->
+    <link
+      rel="stylesheet"
+      href="styles.css"
+      media="print"
+      onload="this.media='all'"
+    />
+
+    <!-- Main JavaScript file with defer -->
+    <script src="main.js" defer></script>
+  </body>
+</html>
