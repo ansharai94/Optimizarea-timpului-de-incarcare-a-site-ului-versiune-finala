@@ -1,0 +1,1 @@
+export function setupVisibilityHandler(){document.addEventListener("visibilitychange",(()=>{const e=window.slider;"hidden"===document.visibilityState?(e&&"function"==typeof e.pauseAutoSlide&&e.pauseAutoSlide(),document.body.classList.add("page-hidden")):(e&&"function"==typeof e.startAutoSlide&&e.startAutoSlide(),document.body.classList.remove("page-hidden"))}),{passive:!0})}

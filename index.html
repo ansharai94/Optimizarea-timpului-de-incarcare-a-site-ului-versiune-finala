@@ -5,22 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Epic Media - Cel mai mare startup din România, oferind soluții digitale inovatoare pentru afacerea dvs."
+      content="Epic Media - Soluții digitale inovatoare pentru afacerea dvs."
     />
-    <title>Epic Media - Cel mai mare startup</title>
+    <meta name="theme-color" content="#4285f4" />
+    <title>Epic Media</title>
 
-      <!-- Culoarea barei de adrese pe mobil -->
-     <meta name="theme-color" content="#4285f4">
-
-    <!-- PWA: Add manifest -->
     <link rel="manifest" href="manifest.json" />
-    <!-- Preconnect to external domains -->
+    <link rel="icon" href="./favicon.ico" type="image/x-icon" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-
-    <link rel="icon" href="/favicon.ico" type="image/x-icon">
-
-    <!-- Preload critical fonts -->
     <link
       rel="preload"
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
@@ -32,30 +25,14 @@
       media="print"
       onload="this.media='all'"
     />
-        <!-- Critical CSS -->
-    <link rel="preload" href="critical.css" as="style">
-    <link rel="stylesheet" href="critical.css">
 
-    <!-- Preload critical images -->
-    <link
-      rel="preload"
-      as="image"
-      href="./assets/img/innovation-360.webp"
-      imagesrcset="./assets/img/innovation-360.webp, ./assets/img/innovation-720.webp 1280w, ./assets/img/innovation-1080.webp"
-      imagesizes="100vw"
-    />
-
-    <!-- Defer non-critical CSS -->
+    <link rel="stylesheet" href="critical.css" />
     <link
       rel="stylesheet"
       href="styles.css"
       media="print"
       onload="this.media='all'"
     />
-        
-    <!-- Preload critical JavaScript -->
-    <link rel="preload" href="critical.js" as="script">
-
   </head>
   <body>
     <header class="header">
@@ -91,11 +68,11 @@
                 ./assets/img/landscape-2800.webp 2800w
               "
               sizes="100vw"
-              type="image/jpeg"
+              type="image/webp"
             />
             <img
               src="./assets/img/landscape-1024.webp"
-              alt="Epic Media Slide 1"
+              alt="Slide 1"
               width="1920"
               height="1080"
               loading="eager"
@@ -123,11 +100,11 @@
                 ./assets/img/landscape2-2800.webp 2800w
               "
               sizes="100vw"
-              type="image/jpeg"
+              type="image/webp"
             />
             <img
-              src="./assets//img/landscape2-1024.webp"
-              alt="Epic Media Slide 2"
+              src="./assets/img/landscape2-1024.webp"
+              alt="Slide 2"
               width="1920"
               height="1080"
               loading="lazy"
@@ -154,11 +131,11 @@
                 ./assets/img/landscape3-2800.webp 2800w
               "
               sizes="100vw"
-              type="image/jpeg"
+              type="image/webp"
             />
             <img
-              src="./assets//img/landscape3-1024.webp"
-              alt="Epic Media Slide 3"
+              src="./assets/img/landscape3-1024.webp"
+              alt="Slide 3"
               width="1920"
               height="1080"
               loading="lazy"
@@ -185,11 +162,11 @@
                 ./assets/img/landscape4-2800.webp 2800w
               "
               sizes="100vw"
-              type="image/jpeg"
+              type="image/webp"
             />
             <img
-              src="./assets//img/landscape4-1024.webp"
-              alt="Epic Media Slide 4"
+              src="./assets/img/landscape4-1024.webp"
+              alt="Slide 4"
               width="1920"
               height="1080"
               loading="lazy"
@@ -216,11 +193,11 @@
                 ./assets/img/landscape5-2800.webp 2800w
               "
               sizes="100vw"
-              type="image/jpeg"
+              type="image/webp"
             />
             <img
               src="./assets/img/landscape5-1024.webp"
-              alt="Epic Media Slide 5"
+              alt="Slide 5"
               width="1920"
               height="1080"
               loading="lazy"
@@ -235,7 +212,6 @@
             <a href="#contact" class="cta-button">Contactați-ne</a>
           </div>
         </div>
-
         <div class="slide-arrows">
           <div class="arrow prev" aria-label="Slide anterioară">&#10094;</div>
           <div class="arrow next" aria-label="Slide următoare">&#10095;</div>
@@ -291,11 +267,11 @@
                 ./assets/img/innovation-360.webp,
                 ./assets/img/innovation-720.webp
               "
-              type="image/jpeg"
+              type="image/webp"
             />
             <img
-              src="./assets/img/innovation-360.webp,"
-              alt="Caracteristică 1"
+              src="./assets/img/innovation-360.webp"
+              alt="Soluții Inovatoare"
               width="80"
               height="53"
               loading="lazy"
@@ -316,11 +292,11 @@
                 ./assets/img/integration-360.webp,
                 ./assets/img/integration-720.webp
               "
-              type="image/jpeg"
+              type="image/webp"
             />
             <img
               src="./assets/img/integration-360.webp"
-              alt="Caracteristică 2"
+              alt="Integrare"
               width="80"
               height="53"
               loading="lazy"
@@ -340,11 +316,11 @@
                 ./assets/img/support-360.webp,
                 ./assets/img/support-720.webp
               "
-              type="image/jpeg"
+              type="image/webp"
             />
             <img
               src="./assets/img/support-360.webp"
-              alt="Caracteristică 3"
+              alt="Suport"
               width="80"
               height="53"
               loading="lazy"
@@ -369,28 +345,26 @@
               lor inovatoare ne-au ajutat să eficientizăm procesele și să
               creștem eficiența."
             </div>
-            <div class="testimonial-author">
-              <picture>
-                <source
-                  srcset="
-                    ./assets/img/people2-50.webp,
-                    ./assets/img/people2-360.webp,
-                    ./assets/img/people2-720.webp
-                  "
-                  type="image/jpeg"
-                />
-                <img
-                  src="./assets/img/people2-360.webp"
-                  alt="Ion Popescu"
-                  width="50"
-                  height="75"
-                  loading="lazy"
-                />
-              </picture>
-              <div class="author-info">
-                <h4>Ion Popescu</h4>
-                <p>CEO, Inovații Tech</p>
-              </div>
+            <picture>
+              <source
+                srcset="
+                  ./assets/img/people1-50.webp,
+                  ./assets/img/people1-360.webp,
+                  ./assets/img/people1-720.webp
+                "
+                type="image/webp"
+              />
+              <img
+                src="./assets/img/people1-360.webp"
+                alt="Maria Ionescu"
+                width="50"
+                height="75"
+                loading="lazy"
+              />
+            </picture>
+            <div class="author-info">
+              <h4>Ion Popescu</h4>
+              <p>CEO, Inovații Tech</p>
             </div>
           </div>
           <div class="testimonial-box">
@@ -399,28 +373,26 @@
               compania noastră. Platforma lor este intuitivă, puternică și
               susținută de un suport excepțional pentru clienți."
             </div>
-            <div class="testimonial-author">
-              <picture>
-                <source
-                  srcset="
-                    ./assets/img/people1-50.webp,
-                    ./assets/img/people1-360.webp,
-                    ./assets/img/people1-720.webp
-                  "
-                  type="image/jpeg"
-                />
-                <img
-                  src="./assets/img/people1-360.webp,"
-                  alt="Maria Ionescu"
-                  width="50"
-                  height="63"
-                  loading="lazy"
-                />
-              </picture>
-              <div class="author-info">
-                <h4>Maria Ionescu</h4>
-                <p>CTO, Soluții Digitale</p>
-              </div>
+            <picture>
+              <source
+                srcset="
+                  ./assets/img/people2-50.webp,
+                  ./assets/img/people2-360.webp,
+                  ./assets/img/people2-720.webp
+                "
+                type="image/webp"
+              />
+              <img
+                src="./assets/img/people2-360.webp"
+                alt="Ion Popescu"
+                width="50"
+                height="75"
+                loading="lazy"
+              />
+            </picture>
+            <div class="author-info">
+              <h4>Maria Ionescu</h4>
+              <p>CTO, Soluții Digitale</p>
             </div>
           </div>
         </div>
@@ -467,8 +439,8 @@
         </div>
       </div>
     </section>
+
     <div class="d-flex justify-content-center">
-      <!-- Lazy load iframe -->
       <iframe
         width="560"
         height="315"
@@ -606,42 +578,30 @@
       </div>
     </footer>
 
-    <!-- PWA: Offline notification -->
     <div class="offline-notification" id="offlineNotification">
       Sunteți offline. Unele funcții pot fi limitate.
     </div>
 
-    <!-- PWA: Install prompt -->
     <div class="install-prompt" id="installPrompt">
-      <span>Instalați aplicația Epic Media</span>
+      <span>Instalează aplicația Epic Media</span>
       <button id="installButton">Instalează</button>
     </div>
-
-    <!-- Load Font Awesome with defer -->
+    <!-- Load Font Awesome -->
     <script src="https://kit.fontawesome.com/a076d05399.js" defer></script>
-
-    <!-- External CSS file -->
-    <link rel="stylesheet" href="styles.css" media="print" onload="this.media='all'">
-
-    <!-- Critical JavaScript inline for faster execution -->
+    <!-- PWA Service Worker Registration -->
     <script>
-        // PWA: Register service worker
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/service-worker.js')
-                    .then(registration => {
-                        console.log('Service Worker registered with scope:', registration.scope);
-                    })
-                    .catch(error => {
-                        console.error('Service Worker registration failed:', error);
-                    });
-            });
-        }
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", () => {
+          navigator.serviceWorker
+            .register("/service-worker.js")
+            .then((reg) => console.log("SW registered:", reg.scope))
+            .catch((err) => console.error("SW registration failed:", err));
+        });
+      }
     </script>
-    
-    <!-- Load scripts with proper attributes -->
-    <script src="critical.js" async></script>
-    <script src="main.js" defer></script>
-    <script src="app.js" defer></script>
+
+    <script src="critical.js" defer></script>
+    <script type="module" src="main.js" defer></script>
+    <script type="module" src="app.js"></script>
   </body>
 </html>

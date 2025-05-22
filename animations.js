@@ -1,0 +1,1 @@
+export function animateOnScroll(){const e=document.querySelectorAll(".feature-box, .testimonial-box, .pricing-box, .footer-col"),t=new IntersectionObserver(((e,t)=>{e.forEach((e=>{e.isIntersecting&&(e.target.classList.add("animated"),t.unobserve(e.target))}))}),{threshold:.1,rootMargin:"0px 0px 50px 0px"});e.forEach((e=>t.observe(e)))}
