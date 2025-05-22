@@ -1,1 +1,47 @@
-(()=>{if('serviceWorker' in navigator&&navigator.serviceWorker.register('/service-worker.js').catch(e=>console.error('Service Worker registration failed:',e)),'IntersectionObserver' in window){const e=new IntersectionObserver(t=>t.forEach(t=>{if(t.isIntersecting){var r=t.target;r.classList.contains('hero-content')&&(r.style.textShadow='0 2px 4px rgba(0, 0, 0, 0.7)'),e.unobserve(r)}}), {threshold:0.1,rootMargin:'0px'});for(const t of document.querySelectorAll('.hero-content'))e.observe(t)}function e(){if(navigator.connection?.saveData||navigator.connection?.effectiveType?.includes('2g'))return;for(const e of [{href:'./assets/img/innovation-360.webp', as:'image', type:'image/webp'}]){var t=document.createElement('link');t.rel='preload',t.href=e.href,t.as=e.as,e.type&&(t.type=e.type),document.head.appendChild(t)}}'interactive'===document.readyState||'complete'===document.readyState?e():window.addEventListener('DOMContentLoaded',e,{once:!0})})();
+(() => {
+  if (
+    ("serviceWorker" in navigator &&
+      navigator.serviceWorker
+        .register("/service-worker.js")
+        .catch((e) => console.error("Service Worker registration failed:", e)),
+    "IntersectionObserver" in window)
+  ) {
+    const e = new IntersectionObserver(
+      (t) =>
+        t.forEach((t) => {
+          if (t.isIntersecting) {
+            var r = t.target;
+            r.classList.contains("hero-content") &&
+              (r.style.textShadow = "0 2px 4px rgba(0, 0, 0, 0.7)"),
+              e.unobserve(r);
+          }
+        }),
+      { threshold: 0.1, rootMargin: "0px" }
+    );
+    for (const t of document.querySelectorAll(".hero-content")) e.observe(t);
+  }
+  function e() {
+    if (
+      navigator.connection?.saveData ||
+      navigator.connection?.effectiveType?.includes("2g")
+    )
+      return;
+    for (const e of [
+      {
+        href: "./assets/img/landscape-1024.webp",
+        as: "image",
+        type: "image/webp",
+      },
+    ]) {
+      var t = document.createElement("link");
+      (t.rel = "preload"),
+        (t.href = e.href),
+        (t.as = e.as),
+        e.type && (t.type = e.type),
+        document.head.appendChild(t);
+    }
+  }
+  "interactive" === document.readyState || "complete" === document.readyState
+    ? e()
+    : window.addEventListener("DOMContentLoaded", e, { once: !0 });
+})();
