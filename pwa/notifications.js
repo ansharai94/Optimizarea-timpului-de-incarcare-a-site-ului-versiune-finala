@@ -1,1 +1,0 @@
-export function setupNotificationPermission(){"Notification"in window&&"granted"!==Notification.permission&&"denied"!==Notification.permission&&document.addEventListener("click",(function i(){Notification.requestPermission(),document.removeEventListener("click",i)}),{once:!0,passive:!0})}
