@@ -1,38 +1,56 @@
 <!DOCTYPE html>
 <html lang="ro">
   <head>
-    <meta charset="UTF-8" />
+      <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="Epic Media - Soluții digitale inovatoare pentru afacerea dvs."
-    />
+    <meta name="description" content="Epic Media - Soluții digitale inovatoare pentru afacerea dvs." />
     <meta name="theme-color" content="#4285f4" />
     <title>Epic Media</title>
 
+    <!-- PWA Support -->
     <link rel="manifest" href="manifest.json" />
     <link rel="icon" href="./favicon.ico" type="image/x-icon" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="apple-touch-icon" href="./assets/img/logo192.png" />
+    
+    <!-- DNS Prefetch and Preconnect -->
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      rel="preload"
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
-      as="style"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
-      rel="stylesheet"
-      media="print"
-      onload="this.media='all'"
-    />
-
+    <link rel="preconnect" href="https://kit.fontawesome.com" crossorigin />
+    
+    <!-- Preload Critical Resources -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" as="style" />
+    <link rel="preload" href="./assets/img/landscape-1024.webp" as="image" type="image/webp" fetchpriority="high" />
+    <link rel="preload" href="./assets/img/logo.svg" as="image" type="image/svg+xml" />
+    <link rel="preload" href="critical.css" as="style" />
+    <link rel="preload" href="critical.js" as="script" />
+    
+    <!-- Fonts with optimized loading -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+    <noscript>
+      <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+    </noscript>
+    
+    <!-- Critical CSS -->
     <link rel="stylesheet" href="critical.css" />
-    <link
-      rel="stylesheet"
-      href="styles.css"
-      media="print"
-      onload="this.media='all'"
-    />
+    
+    <!-- Non-critical CSS with optimized loading -->
+    <link rel="stylesheet" href="styles.css" media="print" onload="this.media='all'" />
+    <noscript>
+      <link rel="stylesheet" href="styles.css" />
+    </noscript>
+    
+    <!-- Meta tags for social sharing -->
+    <meta property="og:title" content="Epic Media" />
+    <meta property="og:description" content="Soluții digitale inovatoare pentru afacerea dvs." />
+    <meta property="og:image" content="./assets/img/og-image.jpg" />
+    <meta property="og:url" content="https://epicmedia.ro" />
+    <meta name="twitter:card" content="summary_large_image" />
+    
+    <!-- Critical JavaScript -->
+    <script src="critical.js" defer></script>
+  </head>
   </head>
   <body>
     <header class="header">
