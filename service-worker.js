@@ -1,1 +1,284 @@
-const CACHE_NAME="epic-media-cache-v1",OFFLINE_URL="offline.html",CRITICAL_ASSETS=["/","/index.html","/offline.html","/critical.css","/critical.js","/assets/img/logo.svg","/assets/img/landscape-360.webp","/assets/img/landscape-720.webp","/assets/img/landscape-1024.webp","/assets/img/landscape-1400.webp","/assets/img/landscape-2800.webp","/assets/img/landscape2-360.webp","/assets/img/landscape2-720.webp","/assets/img/landscape2-1024.webp","/assets/img/landscape2-1400.webp","/assets/img/landscape2-2800.webp","/icons/icon-192x192.png"],SECONDARY_ASSETS=["/styles.css","/main.js","/app.js","/critical.js","/assets/img/innovation-360.webp","/assets/img/innovation-360.webp","/assets/img/innovation-720.webp 1280w","/assets/img/innovation-1080.webp","/assets/img/landscape3-360.webp","/assets/img/landscape3-720.webp","/assets/img/landscape3-1024.webp","/assets/img/landscape3-1400.webp","/assets/img/landscape3-2800.webp","/assets/img/landscape4-360.webp","/assets/img/landscape4-720.webp","/assets/img/landscape4-1024.webp","/assets/img/landscape4-1400.webp","/assets/img/landscape4-2800.webp","/assets/img/landscape5-360.webp","/assets/img/landscape5-720.webp","/assets/img/landscape5-1024.webp","/assets/img/landscape5-1400.webp","/assets/img/landscape5-2800.webp","/assets/img/landscape5-1024.webp","/assets/img/innovation-80.webp","/assets/img/innovation-360.webp","/assets/img/innovation-720.webp","/assets/img/innovation-360.webp,","/assets/img/integration-80.webp","/assets/img/integration-360.webp","/assets/img/integration-720.webp","/assets/img/integration-360.webp","/assets/img/support-80.webp","/assets/img/support-360.webp","/assets/img/support-720.webp","/assets/img/support-360.webp","/assets/img/people2-50.webp","/assets/img/people2-360.webp","/assets/img/people2-720.webp","/assets/img/people2-360.webp","/assets/img/people1-50.webp","/assets/img/people1-360.webp","/assets/img/people1-720.webp","/assets/img/people1-360.webp","/assets/img/logo.svg","/assets/img/logo72.png","/assets/img/logo96.png","/assets/img/logo128.png","/assets/img/logo144.png","/assets/img/logo152.png","/assets/img/logo192.png","/assets/img/logo384.png","/assets/img/logo512.png","assets/img/screenshot1-1280.png","assets/img/screenshot2-1280.png"];async function syncContactForms(){try{const e=await openDB(),s=(await e.getAll("offlineForms")).map((async s=>{try{return!!(await fetch("/api/contact",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(s)})).ok&&(await e.delete("offlineForms",s.id),!0)}catch(e){return console.error("Failed to sync form:",e),!1}}));return Promise.all(s)}catch(e){return console.error("Error syncing offline forms:",e),!1}}function openDB(){return new Promise(((e,s)=>{const t=indexedDB.open("epicMediaDB",1);t.onupgradeneeded=e=>{const s=e.target.result;s.objectStoreNames.contains("offlineForms")||s.createObjectStore("offlineForms",{keyPath:"id",autoIncrement:!0})},t.onsuccess=s=>e({getAll:e=>new Promise(((t,a)=>{const n=s.target.result.transaction(e,"readonly").objectStore(e).getAll();n.onsuccess=()=>t(n.result),n.onerror=()=>a(n.error)})),delete:(e,t)=>new Promise(((a,n)=>{const i=s.target.result.transaction(e,"readwrite").objectStore(e).delete(t);i.onsuccess=()=>a(),i.onerror=()=>n(i.error)}))}),t.onerror=e=>s(e.target.error)}))}self.addEventListener("install",(e=>{e.waitUntil(caches.open(CACHE_NAME).then((e=>e.addAll(CRITICAL_ASSETS).then((()=>self.skipWaiting())))))})),self.addEventListener("activate",(e=>{e.waitUntil(Promise.all([caches.keys().then((e=>Promise.all(e.map((e=>{if(e!==CACHE_NAME)return caches.delete(e)}))))),caches.open(CACHE_NAME).then((e=>e.addAll(SECONDARY_ASSETS))),self.clients.claim()]))})),self.addEventListener("fetch",(e=>{e.request.url.startsWith(self.location.origin)&&"GET"===e.request.method&&("navigate"!==e.request.mode?"image"!==e.request.destination?e.respondWith(caches.match(e.request).then((s=>{const t=fetch(e.request).then((s=>{if(s&&200===s.status){const t=s.clone();caches.open(CACHE_NAME).then((s=>s.put(e.request,t)))}return s})).catch((e=>{throw console.error("Fetch failed:",e),e}));return s||t}))):e.respondWith(caches.match(e.request).then((s=>s||fetch(e.request).then((s=>{if(s&&200===s.status){const t=s.clone();return caches.open(CACHE_NAME).then((s=>s.put(e.request,t))),s}return s})).catch((e=>(console.error("Image fetch failed:",e),new Response("Image not available",{status:404}))))))):e.respondWith(caches.match(e.request).then((s=>s?(fetch(e.request).then((s=>{s&&200===s.status&&caches.open(CACHE_NAME).then((t=>t.put(e.request,s)))})).catch((()=>{})),s):fetch(e.request).catch((()=>caches.match(OFFLINE_URL)))))))})),self.addEventListener("sync",(e=>{"contact-form-sync"===e.tag&&e.waitUntil(syncContactForms())})),self.addEventListener("push",(e=>{if(e.data)try{const s=e.data.json(),t={body:s.body,icon:"/icons/icon-192x192.png",badge:"/icons/badge-icon.png",vibrate:[100,50,100],data:{url:s.url||"/"}};e.waitUntil(self.registration.showNotification(s.title,t))}catch(e){console.error("Push notification error:",e)}})),self.addEventListener("notificationclick",(e=>{e.notification.close(),e.waitUntil(clients.matchAll({type:"window",includeUncontrolled:!0}).then((s=>{const t=e.notification.data.url;for(let e=0;e<s.length;e++){const a=s[e];if(a.url===t&&"focus"in a)return a.focus()}if(clients.openWindow)return clients.openWindow(t)})))}));
+const CACHE_NAME = "epic-media-cache-v1";
+const OFFLINE_URL = "offline.html";
+const CRITICAL_ASSETS = [
+  "/",
+  "/index.html",
+  "/offline.html",
+  "/critical.css",
+  "/critical.js",
+  "/assets/img/logo.svg",
+  "/assets/img/landscape-360.webp",
+  "/assets/img/landscape-720.webp",
+  "/assets/img/landscape-1024.webp",
+  "/assets/img/landscape-1400.webp",
+  "/assets/img/landscape-2800.webp",
+  "/assets/img/landscape2-360.webp",
+  "/assets/img/landscape2-720.webp",
+  "/assets/img/landscape2-1024.webp",
+  "/assets/img/landscape2-1400.webp",
+  "/assets/img/landscape2-2800.webp",
+  "/assets/img/logo-192.png",
+];
+const SECONDARY_ASSETS = [
+  "/styles.css",
+  "/main.js",
+  "/app.js",
+  "/critical.js",
+  "/assets/img/innovation-360.webp",
+  "/assets/img/innovation-360.webp",
+  "/assets/img/innovation-720.webp 1280w",
+  "/assets/img/innovation-1080.webp",
+  "/assets/img/landscape3-360.webp",
+  "/assets/img/landscape3-720.webp",
+  "/assets/img/landscape3-1024.webp",
+  "/assets/img/landscape3-1400.webp",
+  "/assets/img/landscape3-2800.webp",
+  "/assets/img/landscape4-360.webp",
+  "/assets/img/landscape4-720.webp",
+  "/assets/img/landscape4-1024.webp",
+  "/assets/img/landscape4-1400.webp",
+  "/assets/img/landscape4-2800.webp",
+  "/assets/img/landscape5-360.webp",
+  "/assets/img/landscape5-720.webp",
+  "/assets/img/landscape5-1024.webp",
+  "/assets/img/landscape5-1400.webp",
+  "/assets/img/landscape5-2800.webp",
+  "/assets/img/landscape5-1024.webp",
+  "/assets/img/innovation-80.webp",
+  "/assets/img/innovation-360.webp",
+  "/assets/img/innovation-720.webp",
+  "/assets/img/innovation-360.webp,",
+  "/assets/img/integration-80.webp",
+  "/assets/img/integration-360.webp",
+  "/assets/img/integration-720.webp",
+  "/assets/img/integration-360.webp",
+  "/assets/img/support-80.webp",
+  "/assets/img/support-360.webp",
+  "/assets/img/support-720.webp",
+  "/assets/img/support-360.webp",
+  "/assets/img/people2-50.webp",
+  "/assets/img/people2-360.webp",
+  "/assets/img/people2-720.webp",
+  "/assets/img/people2-360.webp",
+  "/assets/img/people1-50.webp",
+  "/assets/img/people1-360.webp",
+  "/assets/img/people1-720.webp",
+  "/assets/img/people1-360.webp",
+  "/assets/img/logo.svg",
+  "/assets/img/logo72.png",
+  "/assets/img/logo96.png",
+  "/assets/img/logo128.png",
+  "/assets/img/logo144.png",
+  "/assets/img/logo152.png",
+  "/assets/img/logo384.png",
+  "/assets/img/logo512.png",
+  "assets/img/screenshot1-1280.png",
+  "assets/img/screenshot2-1280.png",
+];
+self.addEventListener("install", (event) => {
+  event.waitUntil(
+    caches.open(CACHE_NAME).then((cache) => {
+      return cache.addAll(CRITICAL_ASSETS).then(() => self.skipWaiting());
+    })
+  );
+});
+self.addEventListener("activate", (event) => {
+  event.waitUntil(
+    Promise.all([
+      caches.keys().then((cacheNames) => {
+        return Promise.all(
+          cacheNames.map((cacheName) => {
+            if (cacheName !== CACHE_NAME) {
+              return caches.delete(cacheName);
+            }
+          })
+        );
+      }),
+      caches.open(CACHE_NAME).then((cache) => {
+        return cache.addAll(SECONDARY_ASSETS);
+      }),
+      self.clients.claim(),
+    ])
+  );
+});
+self.addEventListener("fetch", (event) => {
+  if (
+    !event.request.url.startsWith(self.location.origin) ||
+    event.request.method !== "GET"
+  ) {
+    return;
+  }
+  if (event.request.mode === "navigate") {
+    event.respondWith(
+      caches.match(event.request).then((cachedResponse) => {
+        if (cachedResponse) {
+          fetch(event.request)
+            .then((networkResponse) => {
+              if (networkResponse && networkResponse.status === 200) {
+                caches
+                  .open(CACHE_NAME)
+                  .then((cache) => cache.put(event.request, networkResponse));
+              }
+            })
+            .catch(() => {});
+          return cachedResponse;
+        }
+        return fetch(event.request).catch(() => caches.match(OFFLINE_URL));
+      })
+    );
+    return;
+  }
+  if (event.request.destination === "image") {
+    event.respondWith(
+      caches.match(event.request).then((cachedResponse) => {
+        if (cachedResponse) {
+          return cachedResponse;
+        }
+        return fetch(event.request)
+          .then((networkResponse) => {
+            if (networkResponse && networkResponse.status === 200) {
+              const clonedResponse = networkResponse.clone();
+              caches
+                .open(CACHE_NAME)
+                .then((cache) => cache.put(event.request, clonedResponse));
+              return networkResponse;
+            }
+            return networkResponse;
+          })
+          .catch((error) => {
+            console.error("Image fetch failed:", error);
+            return new Response("Image not available", { status: 404 });
+          });
+      })
+    );
+    return;
+  }
+  event.respondWith(
+    caches.match(event.request).then((cachedResponse) => {
+      const fetchPromise = fetch(event.request)
+        .then((networkResponse) => {
+          if (networkResponse && networkResponse.status === 200) {
+            const responseToCache = networkResponse.clone();
+            caches
+              .open(CACHE_NAME)
+              .then((cache) => cache.put(event.request, responseToCache));
+          }
+          return networkResponse;
+        })
+        .catch((error) => {
+          console.error("Fetch failed:", error);
+          throw error;
+        });
+      return cachedResponse || fetchPromise;
+    })
+  );
+});
+self.addEventListener("sync", (event) => {
+  if (event.tag === "contact-form-sync") {
+    event.waitUntil(syncContactForms());
+  }
+});
+self.addEventListener("push", (event) => {
+  if (!event.data) return;
+  try {
+    const data = event.data.json();
+    const options = {
+      body: data.body,
+      icon: "/icons/icon-192x192.png",
+      badge: "/icons/badge-icon.png",
+      vibrate: [100, 50, 100],
+      data: { url: data.url || "/" },
+    };
+    event.waitUntil(self.registration.showNotification(data.title, options));
+  } catch (error) {
+    console.error("Push notification error:", error);
+  }
+});
+self.addEventListener("notificationclick", (event) => {
+  event.notification.close();
+  event.waitUntil(
+    clients
+      .matchAll({ type: "window", includeUncontrolled: !0 })
+      .then((windowClients) => {
+        const url = event.notification.data.url;
+        for (let i = 0; i < windowClients.length; i++) {
+          const client = windowClients[i];
+          if (client.url === url && "focus" in client) {
+            return client.focus();
+          }
+        }
+        if (clients.openWindow) {
+          return clients.openWindow(url);
+        }
+      })
+  );
+});
+async function syncContactForms() {
+  try {
+    const db = await openDB();
+    const offlineForms = await db.getAll("offlineForms");
+    const syncPromises = offlineForms.map(async (form) => {
+      try {
+        const response = await fetch("/api/contact", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(form),
+        });
+        if (response.ok) {
+          await db.delete("offlineForms", form.id);
+          return !0;
+        }
+        return !1;
+      } catch (error) {
+        console.error("Failed to sync form:", error);
+        return !1;
+      }
+    });
+    return Promise.all(syncPromises);
+  } catch (error) {
+    console.error("Error syncing offline forms:", error);
+    return !1;
+  }
+}
+function openDB() {
+  return new Promise((resolve, reject) => {
+    const request = indexedDB.open("epicMediaDB", 1);
+    request.onupgradeneeded = (event) => {
+      const db = event.target.result;
+      if (!db.objectStoreNames.contains("offlineForms")) {
+        db.createObjectStore("offlineForms", {
+          keyPath: "id",
+          autoIncrement: !0,
+        });
+      }
+    };
+    request.onsuccess = (event) =>
+      resolve({
+        getAll: (storeName) => {
+          return new Promise((resolve, reject) => {
+            const transaction = event.target.result.transaction(
+              storeName,
+              "readonly"
+            );
+            const store = transaction.objectStore(storeName);
+            const getAllRequest = store.getAll();
+            getAllRequest.onsuccess = () => resolve(getAllRequest.result);
+            getAllRequest.onerror = () => reject(getAllRequest.error);
+          });
+        },
+        delete: (storeName, id) => {
+          return new Promise((resolve, reject) => {
+            const transaction = event.target.result.transaction(
+              storeName,
+              "readwrite"
+            );
+            const store = transaction.objectStore(storeName);
+            const deleteRequest = store.delete(id);
+            deleteRequest.onsuccess = () => resolve();
+            deleteRequest.onerror = () => reject(deleteRequest.error);
+          });
+        },
+      });
+    request.onerror = (event) => reject(event.target.error);
+  });
+}
