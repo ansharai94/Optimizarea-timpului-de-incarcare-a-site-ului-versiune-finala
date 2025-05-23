@@ -9,15 +9,9 @@
     { "src": "*.html",      "use": "@vercel/static" },
     { "src": "assets/(.*)", "use": "@vercel/static" }
   ],
-  "cleanUrls": true,
-  "rewrites": [
-   {
-    "source": "/assets/(.*)",
-    "destination": "/assets/$1"
-   },
-    {
-      "source": "/(.*)",
-      "destination": "/index.html"
-    }
+  "routes": [
+    { "handle": "filesystem" },      
+    { "src": "/assets/(.*)", "dest": "/assets/$1" }, 
+    { "src": "/(.*)",          "dest": "/index.html" }
   ]
 }
