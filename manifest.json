@@ -9,75 +9,15 @@
   "orientation": "portrait-primary",
   "icons": [
     {
-      "src": "assets/img/logo-72.png",
-      "sizes": "72x72",
-      "type": "image/png"
-    },
-    {
-      "src": "assets/img/logo-96.png",
-      "sizes": "96x96",
-      "type": "image/png"
-    },
-    {
-      "src": "assets/img/logo-128.png",
-      "sizes": "128x128",
-      "type": "image/png"
-    },
-    {
-      "src": "assets/img/logo-144.png",
-      "sizes": "144x144",
-      "type": "image/png"
-    },
-    {
-      "src": "assets/img/logo-152.png",
-      "sizes": "152x152",
-      "type": "image/png"
-    },
-    {
-      "src": "assets/img/logo-192.png",
+      "src": "/assets/img/logo-192.png",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "assets/img/logo-384.png",
-      "sizes": "384x384",
-      "type": "image/png"
-    },
-    {
-      "src": "assets/img/logo-512.png",
+      "src": "/assets/img/logo-512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"
-    }
-  ],
-  "screenshots": [
-    {
-      "src": "assets/img/screenshot1-1280.png",
-      "sizes": "1280x720",
-      "type": "image/jpeg"
-    },
-    {
-      "src": "assets/img/screenshot2-1280.png",
-      "sizes": "1280x720",
-      "type": "image/jpeg"
-    }
-  ],
-  "related_applications": [],
-  "prefer_related_applications": false,
-  "shortcuts": [
-    {
-      "name": "Contact",
-      "short_name": "Contact",
-      "description": "Contactați-ne direct",
-      "url": "/#contact",
-      "icons": [{ "src": "/assets/img/contact.png", "sizes": "192x192" }]
-    },
-    {
-      "name": "Caracteristici",
-      "short_name": "Caracteristici",
-      "description": "Vedeți caracteristicile noastre",
-      "url": "/#features",
-      "icons": [{ "src": "/assets/img/features.png", "sizes": "192x192" }]
     }
   ]
 }
