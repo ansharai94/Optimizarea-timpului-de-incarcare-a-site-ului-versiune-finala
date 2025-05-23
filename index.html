@@ -69,6 +69,8 @@
 
     <!-- Critical JavaScript -->
     <script src="critical.js"></script>
+    <script type="module" src="main.js" defer></script>
+    <script type="module" src="app.js" defer></script>
   </head>
   <body>
     <header class="header">
@@ -338,335 +340,9 @@
         </div>
       </div>
     </section>
-
-    <section id="features" class="features">
-      <div class="features-container">
-        <div class="feature-box">
-          <picture>
-            <source
-              srcset="
-                ./assets/img/innovation-80.webp,
-                ./assets/img/innovation-360.webp,
-                ./assets/img/innovation-720.webp
-              "
-              type="image/webp"
-            />
-            <img
-              src="./assets/img/innovation-360.webp"
-              alt="Soluții Inovatoare"
-              width="80"
-              height="53"
-              loading="lazy"
-            />
-          </picture>
-          <h3>Soluții Inovatoare</h3>
-          <p>
-            Tehnologia noastră de ultimă generație oferă soluții inovatoare
-            pentru probleme complexe, ajutând afacerea dvs. să prospere în era
-            digitală.
-          </p>
-        </div>
-        <div class="feature-box">
-          <picture>
-            <source
-              srcset="
-                ./assets/img/integration-80.webp,
-                ./assets/img/integration-360.webp,
-                ./assets/img/integration-720.webp
-              "
-              type="image/webp"
-            />
-            <img
-              src="./assets/img/integration-360.webp"
-              alt="Integrare"
-              width="80"
-              height="53"
-              loading="lazy"
-            />
-          </picture>
-          <h3>Integrare Perfectă</h3>
-          <p>
-            Integrați cu ușurință platforma noastră cu sistemele dvs. existente
-            pentru o tranziție lină și o productivitate sporită.
-          </p>
-        </div>
-        <div class="feature-box">
-          <picture>
-            <source
-              srcset="
-                ./assets/img/support-80.webp,
-                ./assets/img/support-360.webp,
-                ./assets/img/support-720.webp
-              "
-              type="image/webp"
-            />
-            <img
-              src="./assets/img/support-360.webp"
-              alt="Suport"
-              width="80"
-              height="53"
-              loading="lazy"
-            />
-          </picture>
-          <h3>Suport 24/7</h3>
-          <p>
-            Echipa noastră dedicată de asistență este disponibilă non-stop
-            pentru a vă ajuta cu orice probleme sau întrebări pe care le aveți.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section id="testimonials" class="testimonials">
-      <div class="testimonials-container">
-        <h2>Ce Spun Clienții Noștri</h2>
-        <div class="testimonial-grid">
-          <div class="testimonial-box">
-            <div class="testimonial-content">
-              "Epic Media ne-a transformat operațiunile de afaceri. Soluțiile
-              lor inovatoare ne-au ajutat să eficientizăm procesele și să
-              creștem eficiența."
-            </div>
-            <picture>
-              <source
-                srcset="
-                  ./assets/img/people1-50.webp,
-                  ./assets/img/people1-360.webp,
-                  ./assets/img/people1-720.webp
-                "
-                type="image/webp"
-              />
-              <img
-                src="./assets/img/people1-360.webp"
-                alt="Maria Ionescu"
-                width="50"
-                height="75"
-                loading="lazy"
-              />
-            </picture>
-            <div class="author-info">
-              <h4>Ion Popescu</h4>
-              <p>CEO, Inovații Tech</p>
-            </div>
-          </div>
-          <div class="testimonial-box">
-            <div class="testimonial-content">
-              "Colaborarea cu Epic Media a fost o schimbare de joc pentru
-              compania noastră. Platforma lor este intuitivă, puternică și
-              susținută de un suport excepțional pentru clienți."
-            </div>
-            <picture>
-              <source
-                srcset="
-                  ./assets/img/people2-50.webp,
-                  ./assets/img/people2-360.webp,
-                  ./assets/img/people2-720.webp
-                "
-                type="image/webp"
-              />
-              <img
-                src="./assets/img/people2-360.webp"
-                alt="Ion Popescu"
-                width="50"
-                height="75"
-                loading="lazy"
-              />
-            </picture>
-            <div class="author-info">
-              <h4>Maria Ionescu</h4>
-              <p>CTO, Soluții Digitale</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="pricing" class="pricing">
-      <div class="pricing-container">
-        <h2>Alegeți Planul Dvs.</h2>
-        <div class="pricing-grid">
-          <div class="pricing-box">
-            <h3>Basic</h3>
-            <div class="price">129 Lei<span>/lună</span></div>
-            <ul class="pricing-features">
-              <li>5 Proiecte</li>
-              <li>10GB Stocare</li>
-              <li>Suport de Bază</li>
-              <li>Funcții Limitate</li>
-            </ul>
-            <a href="#contact" class="pricing-button">Începeți</a>
-          </div>
-          <div class="pricing-box featured">
-            <h3>Pro</h3>
-            <div class="price">349 Lei<span>/lună</span></div>
-            <ul class="pricing-features">
-              <li>15 Proiecte</li>
-              <li>50GB Stocare</li>
-              <li>Suport Prioritar</li>
-              <li>Funcții Avansate</li>
-            </ul>
-            <a href="#contact" class="pricing-button">Începeți</a>
-          </div>
-          <div class="pricing-box">
-            <h3>Enterprise</h3>
-            <div class="price">899 Lei<span>/lună</span></div>
-            <ul class="pricing-features">
-              <li>Proiecte Nelimitate</li>
-              <li>500GB Stocare</li>
-              <li>Suport 24/7</li>
-              <li>Toate Funcțiile</li>
-            </ul>
-            <a href="#contact" class="pricing-button">Începeți</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <div class="d-flex justify-content-center">
-      <iframe
-        width="560"
-        height="315"
-        src="about:blank"
-        data-src="https://www.youtube.com/embed/NRT1g99jBR4?si=2qQkcPD6jq7zmYQg"
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen
-        loading="lazy"
-        title="YouTube Video"
-      ></iframe>
-    </div>
-
-    <section id="contact" class="contact">
-      <div class="contact-container">
-        <div class="contact-info">
-          <h2>Contactați-ne</h2>
-          <p>
-            Aveți întrebări sau sunteți gata să începeți? Contactați-ne astăzi
-            și echipa noastră vă va ajuta cu plăcere.
-          </p>
-          <ul class="contact-details">
-            <li>
-              <i class="fas fa-map-marker-alt" aria-hidden="true"></i> Strada
-              Tehnologiei 123, București
-            </li>
-            <li>
-              <i class="fas fa-phone" aria-hidden="true"></i> (021) 456-7890
-            </li>
-            <li>
-              <i class="fas fa-envelope" aria-hidden="true"></i>
-              info@epicmedia.ro
-            </li>
-          </ul>
-        </div>
-        <div class="contact-form">
-          <form id="contactForm">
-            <div class="form-group">
-              <input
-                type="text"
-                class="form-control"
-                placeholder="Numele Dvs."
-                required
-                aria-label="Numele Dvs."
-              />
-            </div>
-            <div class="form-group">
-              <input
-                type="email"
-                class="form-control"
-                placeholder="Email-ul Dvs."
-                required
-                aria-label="Email-ul Dvs."
-              />
-            </div>
-            <div class="form-group">
-              <input
-                type="text"
-                class="form-control"
-                placeholder="Subiect"
-                aria-label="Subiect"
-              />
-            </div>
-            <div class="form-group">
-              <textarea
-                class="form-control"
-                placeholder="Mesajul Dvs."
-                required
-                aria-label="Mesajul Dvs."
-              ></textarea>
-            </div>
-            <button type="submit" class="submit-button">Trimite Mesaj</button>
-          </form>
-        </div>
-      </div>
-    </section>
-
-    <footer class="footer">
-      <div class="footer-container">
-        <div class="footer-col">
-          <h3>Epic Media</h3>
-          <p>
-            Cel mai mare startup creat vreodată. Revoluționăm modul în care
-            faceți afaceri cu soluțiile noastre inovatoare.
-          </p>
-        </div>
-        <div class="footer-col">
-          <h3>Link-uri Rapide</h3>
-          <ul class="footer-links">
-            <li><a href="#home">Acasă</a></li>
-            <li><a href="#features">Caracteristici</a></li>
-            <li><a href="#testimonials">Testimoniale</a></li>
-            <li><a href="#pricing">Prețuri</a></li>
-            <li><a href="#contact">Contact</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h3>Resurse</h3>
-          <ul class="footer-links">
-            <li><a href="#">Blog</a></li>
-            <li><a href="#">Documentație</a></li>
-            <li><a href="#">Suport</a></li>
-            <li><a href="#">Politica de Confidențialitate</a></li>
-            <li><a href="#">Termeni și Condiții</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h3>Conectați-vă Cu Noi</h3>
-          <ul class="social-links">
-            <li>
-              <a href="#" aria-label="Facebook"
-                ><i class="fab fa-facebook-f" aria-hidden="true"></i
-              ></a>
-            </li>
-            <li>
-              <a href="#" aria-label="Twitter"
-                ><i class="fab fa-twitter" aria-hidden="true"></i
-              ></a>
-            </li>
-            <li>
-              <a href="#" aria-label="Instagram"
-                ><i class="fab fa-instagram" aria-hidden="true"></i
-              ></a>
-            </li>
-            <li>
-              <a href="#" aria-label="LinkedIn"
-                ><i class="fab fa-linkedin-in" aria-hidden="true"></i
-              ></a>
-            </li>
-          </ul>
-        </div>
-        <div class="copyright">
-          &copy; 2025 Epic Media. Toate drepturile rezervate.
-        </div>
-      </div>
-    </footer>
-
-    <div class="offline-notification" id="offlineNotification">
-      Sunteți offline. Unele funcții pot fi limitate.
-    </div>
-
-    <div class="install-prompt" id="installPrompt">
-      <span>Instalează aplicația Epic Media</span>
-      <button id="installButton">Instalează</button>
+    <!-- Rest of the content loaded lazily -->
+    <div id="lazy-content" style="display: none">
+      <!-- This will be populated by JavaScript after initial render -->
     </div>
 
     <!-- PWA Service Worker Registration -->
@@ -679,9 +355,31 @@
             .catch((err) => console.error("SW registration failed:", err));
         });
       }
-    </script>
+      // Load the rest of the page content after initial render
+      function loadRemainingContent() {
+        fetch("remaining-index.html")
+          .then((response) => response.text())
+          .then((html) => {
+            const el = document.getElementById("lazy-content");
+            el.innerHTML = html;
+            el.style.display = "block";
 
-    <script type="module" src="main.js" defer></script>
-    <script type="module" src="app.js" defer></script>
+            document.querySelectorAll("iframe[data-src]").forEach((iframe) => {
+              iframe.src = iframe.dataset.src;
+            });
+          })
+          .catch((error) => {
+            console.error("Error loading remaining content:", error);
+          });
+      }
+      // Use requestIdleCallback or setTimeout as fallback
+      if ("requestIdleCallback" in window) {
+        requestIdleCallback(() => {
+          loadRemainingContent();
+        });
+      } else {
+        setTimeout(loadRemainingContent, 2000);
+      }
+    </script>
   </body>
 </html>
