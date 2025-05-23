@@ -367,12 +367,16 @@
             document.querySelectorAll("iframe[data-src]").forEach((iframe) => {
               iframe.src = iframe.dataset.src;
             });
-            document.querySelector('.install-prompt').style.display = 'flex'
+            document.dispatchEvent(new Event('inner-content-loaded'));
+            revealAfterLCP();
+      
           })
           .catch((error) => {
             console.error("Error loading remaining content:", error);
           });
       }
+      // call this as early as you can (e.g. in main.js right after initSlider())
+
       // Use requestIdleCallback or setTimeout as fallback
       if ("requestIdleCallback" in window) {
         requestIdleCallback(() => {
