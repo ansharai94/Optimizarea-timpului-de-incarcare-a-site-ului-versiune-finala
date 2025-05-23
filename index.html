@@ -367,6 +367,7 @@
             document.querySelectorAll("iframe[data-src]").forEach((iframe) => {
               iframe.src = iframe.dataset.src;
             });
+            document.querySelector('.install-prompt').style.display = 'flex'
           })
           .catch((error) => {
             console.error("Error loading remaining content:", error);
