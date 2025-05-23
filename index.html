@@ -367,8 +367,6 @@
             document.querySelectorAll("iframe[data-src]").forEach((iframe) => {
               iframe.src = iframe.dataset.src;
             });
-            document.dispatchEvent(new Event('inner-content-loaded'));
-            revealAfterLCP();
       
           })
           .catch((error) => {
